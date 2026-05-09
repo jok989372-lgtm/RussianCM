@@ -165,6 +165,36 @@ cmu-medical-surgery-step-suture-heart-label = Suture Heart
 cmu-medical-surgery-step-suture-stomach-label = Suture Stomach
 cmu-medical-surgery-step-amputate-limb-label = Amputate Limb
 cmu-medical-surgery-step-reattach-limb-label = Reattach Severed Limb
+cmu-medical-surgery-step-trim-necrotic-stump-label = Trim Necrotic Stump
+cmu-medical-surgery-step-prep-reattach-socket-label = Prep Reattachment Socket
+cmu-medical-surgery-step-debride-eschar-label = Debride Eschar
+
+# ---- Surgery names ---------------------------------------------------
+
+cmu-medical-surgery-name-set-fracture = Set Fracture
+cmu-medical-surgery-name-stop-internal-bleeding = Stop Internal Bleeding
+cmu-medical-surgery-name-remove-liver = Remove Liver
+cmu-medical-surgery-name-remove-lungs = Remove Lungs
+cmu-medical-surgery-name-remove-kidneys = Remove Kidneys
+cmu-medical-surgery-name-remove-heart = Remove Heart
+cmu-medical-surgery-name-remove-stomach = Remove Stomach
+cmu-medical-surgery-name-replace-liver = Replace Liver
+cmu-medical-surgery-name-replace-lungs = Replace Lungs
+cmu-medical-surgery-name-replace-kidneys = Replace Kidneys
+cmu-medical-surgery-name-transplant-heart = Transplant Heart
+cmu-medical-surgery-name-replace-stomach = Replace Stomach
+cmu-medical-surgery-name-suture-liver = Suture Liver
+cmu-medical-surgery-name-suture-lungs = Suture Lungs
+cmu-medical-surgery-name-suture-kidneys = Suture Kidneys
+cmu-medical-surgery-name-suture-heart = Suture Heart
+cmu-medical-surgery-name-suture-stomach = Suture Stomach
+cmu-medical-surgery-name-repair-brain = Repair Brain
+cmu-medical-surgery-name-repair-eyes = Repair Eyes
+cmu-medical-surgery-name-repair-ears = Repair Ears
+cmu-medical-surgery-name-remove-limb = Remove Limb
+cmu-medical-surgery-name-reattach-limb = Reattach Limb
+cmu-medical-surgery-name-remove-larva = Remove Larva
+cmu-medical-surgery-name-debride-eschar = Debride Eschar
 
 # ---- Autodoc ---------------------------------------------------------
 
