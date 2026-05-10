@@ -1,50 +1,50 @@
 ﻿<Document>
-  # Minor Crimes
-  These crimes are low severity and can be alternatively punished with an NJP.
+  # Малые преступления
+  Эти преступления имеют низкую тяжесть и могут наказываться NJP вместо ареста.
 
- ## Failure to Follow Procedure
- Failing to follow the regulations found in the Standard Operating Procedure.
-  - 10 Minutes, equipment confiscation where relevant.
+ ## Несоблюдение процедуры
+ Несоблюдение правил, указанных в стандартной операционной процедуре (SOP).
+  - 10 минут, с конфискацией снаряжения, если применимо.
 
 
- ## Smoking in Medical Areas
- Smoking in areas designated for use by medical personnel, such as the entire medbay and surgical rooms.
+ ## Курение в медицинских зонах
+ Курение в зонах, предназначенных для медицинского персонала, включая весь медотсек и операционные.
   - NJP
 
 
- ## Hooliganism
- Behavior that is generally disruptive to the ship or installation and its personnel that classifies as low-level shenanigans not deserving of more severe punishment. Things such as excessive window knocking, force-feeding or failing to conduct oneself properly during the briefing, such as climbing the Briefing overview.
-  - 6 minutes.
+ ## Хулиганство
+ Поведение, в целом нарушающее порядок на корабле или объекте и мешающее персоналу, но относящееся к мелким выходкам, не заслуживающим более сурового наказания. Примеры: чрезмерный стук по окнам, насильственное кормление или неподобающее поведение на брифинге, например залезание на обзорную площадку брифинга.
+  - 6 минут.
 
 
- ## Trespassing
- Unauthorized access of an area which a person does not normally have access to or without command/superior approval.
-  - 9 minutes.
+ ## Незаконное проникновение
+ Несанкционированный доступ в зону, куда лицо обычно не имеет доступа, либо доступ без разрешения командования/начальства.
+  - 9 минут.
 
 
- ## Intoxication
- To consume alcohol, marijana or other substances such as drugs resulting in being mentally or physically impaired.
-  - 10 minutes, extended until the person is no longer impaired.
+ ## Интоксикация
+ Употребление алкоголя, марихуаны или иных веществ, например наркотиков, приводящее к умственному или физическому нарушению состояния.
+  - 10 минут, продлевается до прекращения состояния опьянения или нарушения.
 
 
- ## Theft
- To take items (or property) from another person or entity without their express permission, or to retain possession of items that have been taken without permission. This includes the removal of vendors from department areas without permission.
-  - 10 minutes, and the item(s) returned to the owner.
+ ## Кража
+ Взятие предметов или имущества у другого лица либо организации без их явного разрешения, а также удержание предметов, взятых без разрешения. Сюда относится вынос торговых автоматов из зон отделов без разрешения.
+  - 10 минут, а предметы возвращаются владельцу.
 
 
- ## Disrespecting a superior Officer
- Using offensive names, failing to salute an officer or being directly disrespectful to an Officer of higher rank or position.
+ ## Неуважение к старшему офицеру
+ Использование оскорбительных обращений, отказ от приветствия офицера или прямое неуважение к офицеру более высокого звания или должности.
   - NJP
 
 
- ## Insubordination
- To ignore or not execute the lawful orders of higher ranking personnel.
-  - 12 minutes.
+ ## Неповиновение
+ Игнорирование или неисполнение законных приказов вышестоящего персонала.
+  - 12 минут.
 
 
- ## False Testimony
- To intentionally and willingly lie to an MP/Law Enforcement Officer, or deputized officer, during a criminal investigation with the intent to disrupt said investigation.
-  - 5 minutes, in relation to a minor crime.
-  - 15 minutes, in relation to a major crime.
-  - 20 minutes, in relation to a capital crime.
+ ## Ложные показания
+ Намеренная и добровольная ложь офицеру военной полиции/правоохранителю или уполномоченному офицеру во время уголовного расследования с целью сорвать это расследование.
+  - 5 минут, если связано с малым преступлением.
+  - 15 минут, если связано с тяжким преступлением.
+  - 20 минут, если связано с особо тяжким преступлением.
 </Document>

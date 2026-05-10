@@ -1,62 +1,62 @@
 ﻿<Document>
-  # Definitions and Glossary
+  # Определения и глоссарий
 
 
- ## Prisoner of War (POW)
-POWs are defined as anyone who is a members of a nation's armed forces or in a militia with all of these four distinctions:
-  - Command structure.
-  - Distinctive signs or uniform.
-  - Carrying arms openly.
-  - Following laws of war.
+ ## Военнопленный (POW)
+Военнопленным считается любой участник вооруженных сил государства или ополчения, если соблюдаются все четыре признака:
+  - Наличие командной структуры.
+  - Отличительные знаки или форма.
+  - Открытое ношение оружия.
+  - Соблюдение законов войны.
 
- ## Commander
-The leader of the faction, interchangeable with the Acting Commander. 
+ ## Командир
+Руководитель фракции. В тексте может использоваться взаимозаменяемо с исполняющим обязанности командира.
 
- ## Acting Commander
-The person acting in the place of the commander.
+ ## Исполняющий обязанности командира
+Лицо, временно исполняющее обязанности командира.
 
- ## Command Staff
-Personnel holding senior leadership positions responsible for planning, oversight, and command of operations, including the Commander and subordinate officers.
+ ## Командный состав
+Персонал на старших руководящих должностях, отвечающий за планирование, надзор и управление операциями, включая командира и подчиненных офицеров.
 
- ## Delegated Command
-The temporary transfer of authority from a superior officer to a subordinate.
+ ## Делегированное командование
+Временная передача полномочий от старшего офицера подчиненному.
 
- ## Area of Operations (AO)
-The designated zone in which operations are being conducted. This is considered anywhere outside of your faction's ship/installation. 
+ ## Зона операции (AO)
+Назначенная зона, в которой проводятся операции. Ей считается любая территория за пределами корабля или объекта вашей фракции.
 
- ## Hostile Personnel
-Any individual or group demonstrating intent or capability to inflict harm on personnel, civilians or objectives.
+ ## Враждебный персонал
+Любое лицо или группа, демонстрирующие намерение или возможность причинить вред персоналу, гражданским или целям операции.
 
- ## Non-Combatant
-Individuals not actively participating in hostilities, generally civilians.
+ ## Некомбатант
+Лица, не принимающие активного участия в боевых действиях, обычно гражданские.
 
- ## Protected Persons
-Civilians, medical personnel, surrendering combatants and any individual otherwise safeguarded under the laws of war.
+ ## Защищенные лица
+Гражданские, медицинский персонал, сдающиеся комбатанты и любые другие лица, защищенные законами войны.
 
- ## Lethal Force
-Force intended or reasonably expected to cause death or serious bodily harm.
+ ## Смертельная сила
+Сила, предназначенная для причинения смерти или тяжкого вреда здоровью либо с разумной вероятностью ведущая к таким последствиям.
 
- ## Non-Lethal Force
-Force intended to incapacitate or compel compliance without causing death. Less-than-lethal weapons that still deal minor amounts of damage such as baton rounds are counted as Non-Lethal force.
+ ## Несмертельная сила
+Сила, предназначенная для выведения из строя или принуждения к подчинению без причинения смерти. Оружие сниженной летальности, которое все же наносит небольшой вред, например резиновые патроны, считается несмертельной силой.
 
- ## Secure Area
-Any location defended by your faction that has at least one full line of fortifications or five or more posted guards.
+ ## Безопасная зона
+Любое место, обороняемое вашей фракцией, где есть как минимум одна полная линия укреплений или пять и более выставленных охранников.
 
- ## Personnel
-All members of the applicable faction.
+ ## Персонал
+Все представители соответствующей фракции.
 
- ## Auxiliary Staff/Support Crew
-Non combat roles that provide logistical, police, medical, or engineering support.
+ ## Вспомогательный персонал/экипаж поддержки
+Небоевые должности, обеспечивающие логистическую, полицейскую, медицинскую или инженерную поддержку.
 
- ## Flight Crew
-Pilots and Dropship Crew Chiefs.
+ ## Летный экипаж
+Пилоты и старшие экипажа десантных шаттлов.
 
- ## Third-Party Personnel
-Individuals or groups not affiliated with the primary factions (OPFOR/GOVFOR/CLF) involved in the operation.
+ ## Персонал третьих сторон
+Лица или группы, не связанные с основными фракциями (OPFOR/GOVFOR/CLF), участвующими в операции.
 
- ## Combat Information Center (CIC)
-The command and control hub of a ship or installation.
+ ## Центр боевой информации (CIC)
+Центр командования и управления на корабле или объекте.
 
- ## Special Weapon
-Any weapon not issued to general members of the faction, usually acquired from the special weapons vendor or requisitions. 
+ ## Специальное оружие
+Любое оружие, не выдаваемое рядовым представителям фракции. Обычно получается у поставщика специального вооружения или через снабжение.
 </Document>

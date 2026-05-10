@@ -1,17 +1,17 @@
 ﻿<Document>
-  # Optional Crimes
-  These crimes can be added on to existing charges where relevant.
+  # Дополнительные статьи
+  Эти статьи могут добавляться к уже предъявленным обвинениям, если они применимы.
 
- ## Resisting Arrest
- To resist a lawful arrest or search by an officer.
-  - 5 minutes, refusing to comply with a lawful search or arrest.
-  - 10 minutes, resisting a legal arrest by fleeing or using force.
+ ## Сопротивление задержанию
+ Сопротивление законному задержанию или обыску, проводимому офицером.
+  - 5 минут за отказ подчиниться законному обыску или задержанию.
+  - 10 минут за сопротивление законному задержанию путем бегства или применения силы.
 
- ## Aiding and Abetting
- Assisting others in committing a crime, directly or indirectly, or encouraging them to commit one. Any person Aiding and Abetting is required to be told the crimes of the person they aided.
-  - Same punishment as crime committed.
+ ## Пособничество и подстрекательство
+ Прямая или косвенная помощь другим лицам в совершении преступления либо склонение их к его совершению. Любому лицу, обвиненному в пособничестве и подстрекательстве, необходимо сообщить, в каких преступлениях обвиняется тот, кому оно помогало.
+  - То же наказание, что и за совершенное преступление.
 
- ## Disorderly Conduct in Confinement
- To cause disruption in a significant manner while in Brig and under arrest. This can be added on to any charge.
-  - 7 minutes.
+ ## Нарушение порядка в заключении
+ Существенное нарушение порядка во время ареста и нахождения в бриге. Может добавляться к любому обвинению.
+  - 7 минут.
 </Document>
