@@ -23,3 +23,8 @@ rmc-guide-entry-rules-command-chain = Цепь командования
 rmc-guide-entry-rules-core = Основные правила
 rmc-guide-entry-rules-command = Правила для командования
 rmc-guide-entry-rules-roleplay-standards = Стандарты ролевой игры
+
+rumc-guide-entry-rules = Правила
+rumc-guide-entry-rules-core = Основные правила
+rumc-guide-entry-rules-command-chain = Цепь командования
+rumc-guide-entry-rules-marine-law = Устав морской пехоты
