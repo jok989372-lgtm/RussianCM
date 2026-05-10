@@ -7,7 +7,7 @@
   parent: CMASRSConsole
   id: AU14CorporateASRSConsole
   name: корпоративная консоль поставок
-  description: Корпоративный терминал управления поставками Вестон-Ямада. На заказы, размещенные здесь, распространяется действующая ставка налога с продаж.
+  description: Корпоративный терминал управления поставками Вестон-Ютани. На заказы, размещенные здесь, распространяется действующая ставка налога с продаж.
   suffix: Corporate, ASRS
   components:
   - type: RequisitionsComputer
@@ -35,7 +35,7 @@
         crate: RMCCrateInflatableBarriers
       - cost: 1500
         crate: RMCCrateEmptySandbags
-          - name: Weaponry
+          - name: We-Yu Weaponry
       entries:
       - cost: 3000
         crate: AU14CrateM41AMK2
@@ -49,7 +49,7 @@
         crate: AU14CrateM5A1SLAW_We-Yu
       - cost: 3250
         crate: AU14CrateM39B2
-    - name: Ammunition
+    - name: We-Yu Ammunition
       entries:
       - cost: 1000
         crate: AU14CrateM41AMK2Ammo

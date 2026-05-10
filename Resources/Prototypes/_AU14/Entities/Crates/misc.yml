@@ -222,15 +222,15 @@
   - type: StorageFill
     contents:
     - id: RMCWeaponFlamer
-      amount: 2
+      amount: 1
     - id: RMCTankFlamer
-      amount: 4
+      amount: 2
 
 - type: entity
   parent: RMCCrateWeapons
   id: AU14CrateFP9000
   name: FP9000/2 crate (1x FP9000/2, 3x FP9000/2 magazines)
-  description: A crate containing one FP9000/2 rifles and three magazines.
+  description: A crate containing one FP9000/2 rifle and three magazines.
   components:
   - type: StorageFill
     contents:
