@@ -32,6 +32,9 @@
     containers:
       CashSlot: !type:ContainerSlot {}
 
+
+
+
 - type: entity
   parent: BaseStructure
   id: AUSubmissionPointBase
@@ -135,6 +138,93 @@
       tags:
       - Fruit
 
+# RuCM change start
+# We-Yu Submission Points
+- type: entity
+  parent: AUSubmissionPointBase
+  id: AUSubmissionPointSteelWeYu
+  name: submission Point (steel - We-Yu)
+  description: A place to submit steel for the We-Yu faction.
+  components:
+    - type: ItemSlots
+      slots:
+        ItemCabinet:
+          whitelist:
+            tags:
+              - SteelOre
+    - type: SubmissionStorage
+      isCorporate: true
+      rewards:
+        SteelOre: 120
+    - type: DisposalUnit
+    whitelist:
+      tags:
+      - SteelOre
+
+- type: entity
+  parent: AUSubmissionPointBase
+  id: AUSubmissionPointWoodWeYu
+  name: submission Point (wood - We-Yu)
+  description: A place to submit wood for the We-Yu faction.
+  components:
+    - type: ItemSlots
+      slots:
+        ItemCabinet:
+          whitelist:
+            tags:
+              - AUwood
+    - type: SubmissionStorage
+      isCorporate: true
+      rewards:
+        AUwood: 40
+    - type: DisposalUnit
+    whitelist:
+      tags:
+      - AUwood
+
+- type: entity
+  parent: AUSubmissionPointBase
+  id: AUSubmissionPointVegetablesWeYu
+  name: submission Point (vegetables - We-Yu)
+  description: A place to submit vegetables for the We-Yu faction.
+  components:
+    - type: ItemSlots
+      slots:
+        ItemCabinet:
+          whitelist:
+            tags:
+              - Vegetable
+    - type: SubmissionStorage
+      isCorporate: true
+      rewards:
+        Vegetable: 15
+      - type: DisposalUnit
+    whitelist:
+      tags:
+      - Vegetable
+
+- type: entity
+  parent: AUSubmissionPointBase
+  id: AUSubmissionPointFruitWeYu
+  name: submission Point (fruit - We-Yu)
+  description: A place to submit fruit for the We-Yu faction.
+  components:
+    - type: ItemSlots
+      slots:
+        ItemCabinet:
+          whitelist:
+            tags:
+              - Fruit
+    - type: SubmissionStorage
+      isCorporate: true
+      rewards:
+        Fruit: 30
+    - type: DisposalUnit
+    whitelist:
+      tags:
+      - Fruit
+# RuCM change end
+
 - type: Tag
   id: SteelOre
 
@@ -162,6 +252,7 @@
       components:
       - Xeno
   - type: ColonyCommsConsole
+
 
 - type: entity
   id: AUColonyIntercom
@@ -197,6 +288,7 @@
   - type: Transform
     noRot: false
     anchored: true
+
 
 - type: entity
   id: colonysiren
@@ -249,6 +341,7 @@
       enum.ColonyAtmUi.Key:
         type: ColonyAtmBui
   - type: ColonyAtm
+
 
 # Department Consoles
 - type: entity
@@ -327,6 +420,7 @@
     defaultSalary: 60
   - type: AccessReader
     access: [["AU14AccessColonyMarshall"]]
+
 
 - type: entity
   parent: AUDepartmentConsoleBase

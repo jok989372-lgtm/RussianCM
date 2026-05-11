@@ -10,4 +10,10 @@ public sealed partial class SubmissionStorageComponent : Component
 {
     [DataField, ViewVariables]
     public Dictionary<ProtoId<TagPrototype>, float>? Rewards;
+
+    // RuCM change start
+    [DataField("isCorporate")]
+    public bool IsCorporate = false;
+    // RuCM change end
+
 }
