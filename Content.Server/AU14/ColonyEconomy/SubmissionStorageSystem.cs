@@ -63,6 +63,7 @@ public sealed class SubmissionStorageSystem : EntitySystem
 
         EntityManager.PredictedQueueDeleteEntity(args.Entity);
 
+        // RuCM change start
         // Corporate submission points bypass tariff entirely
 
         if (submission.IsCorporate)
@@ -71,6 +72,7 @@ public sealed class SubmissionStorageSystem : EntitySystem
                 _corporateConsole.AddToCorporateBudget(reward);
             return;
         }
+        // RuCM change end
 
         // Split: tariff % goes to corporate budget, remainder to colony budget
         var tariffAmount = reward * tariff;

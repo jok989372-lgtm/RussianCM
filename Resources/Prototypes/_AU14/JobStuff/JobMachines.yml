@@ -138,6 +138,7 @@
       tags:
       - Fruit
 
+# RuCM change start
 # We-Yu Submission Points
 - type: entity
   parent: AUSubmissionPointBase
@@ -175,7 +176,7 @@
     - type: SubmissionStorage
       isCorporate: true
       rewards:
-        AUwood: 80
+        AUwood: 40
     - type: DisposalUnit
     whitelist:
       tags:
@@ -196,7 +197,7 @@
     - type: SubmissionStorage
       isCorporate: true
       rewards:
-        Vegetable: 10
+        Vegetable: 15
       - type: DisposalUnit
     whitelist:
       tags:
@@ -222,6 +223,7 @@
     whitelist:
       tags:
       - Fruit
+# RuCM change end
 
 - type: Tag
   id: SteelOre

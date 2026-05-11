@@ -199,6 +199,7 @@
     - id: AU14BoxHIDPUPP
       amount: 1
 
+  # RuCM change start
   # We-Yu Weapon Crates
 - type: entity
   parent: RMCCrateWeapons
@@ -332,3 +333,4 @@
     contents:
     - id: CMMagazineSMGM63
       amount: 5
+  # RuCM change end

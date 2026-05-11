@@ -45,9 +45,9 @@
     state: terminal1_old
   - type: CorporateConsole
     callableParties:
-      WYPMCParty: 12500
-      WYHT: 8000
-      IPIESynth: 5000
+      WYPMCParty: 12500 #RuCM change
+      WYHT: 8000 #RuCM change
+      IPIESynth: 5000 #RuCM change
   - type: AccessReader
     access: [ [ "CMAccessCorp" ] ]
 

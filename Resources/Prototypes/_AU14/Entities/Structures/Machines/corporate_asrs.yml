@@ -35,7 +35,8 @@
         crate: RMCCrateInflatableBarriers
       - cost: 1500
         crate: RMCCrateEmptySandbags
-          - name: We-Yu Weaponry
+      #RuCM change start
+    - name: We-Yu Weaponry
       entries:
       - cost: 3000
         crate: AU14CrateM41AMK2
@@ -61,6 +62,7 @@
         crate: AU14CrateSSG45Ammo
       - cost: 1500
         crate: AU14CrateM39B2Ammo
+      #RuCM change end
 
 # Corporate ASRS Elevator
 - type: entity
