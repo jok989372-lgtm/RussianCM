@@ -67,3 +67,7 @@ marking-used-forced = { $marking-name } (Принудительно)
 marking-slot-add = Добавить
 marking-slot-remove = Удалить
 marking-slot = Слот { $number }
+
+# Missing entries synced from en-US
+
+markings-category-Head = Глава
