@@ -81,7 +81,7 @@ public abstract partial class SharedRankSystem : EntitySystem
     /// <summary>
     ///     Gets the rank name of a given mob.
     /// </summary>
-    public string? GetRankString(EntityUid uid, bool isShort = false, bool hasPaygrade = false)
+    public string? GetRankString(EntityUid uid, bool isShort = false, bool hasPaygrade = false) //RuMC edit localisation
     {
         var rank = GetRank(uid);
 
@@ -91,10 +91,10 @@ public abstract partial class SharedRankSystem : EntitySystem
         if (isShort)
         {
             if (rank.FemalePrefix == null || rank.MalePrefix == null)
-                return rank.Prefix;
+                return Loc.TryGetString($"rank-{rank.ID}.prefix", out var lp) ? lp : rank.Prefix;
 
             if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearance))
-                return rank.Prefix;
+                return Loc.TryGetString($"rank-{rank.ID}.prefix", out var lp) ? lp : rank.Prefix;
 
             var genderPrefix = humanoidAppearance.Gender switch
             {
@@ -106,10 +106,12 @@ public abstract partial class SharedRankSystem : EntitySystem
             return genderPrefix;
         }
 
-        if (hasPaygrade && rank.Paygrade != null)
-            return $"({Loc.GetString(rank.Paygrade)}) {Loc.GetString(rank.Name)}";
+        var locName = Loc.TryGetString($"rank-{rank.ID}", out var ln) ? ln : rank.Name;
 
-        return rank.Name;
+        if (hasPaygrade && rank.Paygrade != null)
+        return $"({Loc.GetString(rank.Paygrade)}) {locName}";
+
+        return locName;
     }
 
     /// <summary>
