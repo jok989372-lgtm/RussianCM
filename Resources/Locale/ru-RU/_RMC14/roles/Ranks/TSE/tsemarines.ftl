@@ -13,11 +13,11 @@ rank-RMCRankTSESergeant = Сержант
 rank-RMCRankTSEColourSergeant = Знаменный сержант
   .prefix = Зн. Серж.
 
-rank-RMCRankTSEWarrantOfficer1 = Прапорщик 1-го класса
-  .prefix = Прап. 1кл.
+rank-RMCRankTSEWarrantOfficer1 = Уоррент-офицер 1-го класса
+  .prefix = УО1
 
-rank-RMCRankTSEWarrantOfficer2 = Прапорщик 2-го класса
-  .prefix = Прап. 2кл.
+rank-RMCRankTSEWarrantOfficer2 = Уоррент-офицер 2-го класса
+  .prefix = УО2
 
 rank-RMCRankTSESecondLieutenant = Второй лейтенант
   .prefix = 2-й Лейт.
@@ -70,8 +70,8 @@ rank-RMCRankParaSergeant = Сержант
 rank-RMCRankParaStaffSergeant = Штаб-сержант
   .prefix = Штаб-серж.
 
-rank-RMCRankParaWarrantOfficerClass2 = Прапорщик 2-го класса
-  .prefix = Прап. 2кл.
+rank-RMCRankParaWarrantOfficerClass2 = Уоррент-офицер 2-го класса
+  .prefix = УО2
 
 rank-RMCRankParaSecondLieutenant = Второй лейтенант
   .prefix = 2-й Лейт.

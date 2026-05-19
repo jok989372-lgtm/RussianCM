@@ -16,11 +16,11 @@ rank-RMC_Sergeant = Сержант
 rank-RMC_ColourSergeant = Знаменный сержант
   .prefix = Зн. Серж.
 
-rank-RMC_WarrantOfficer2 = Прапорщик 2-го класса
-  .prefix = Прап. 2кл.
+rank-RMC_WarrantOfficer2 = Уоррент-офицер 2-го класса
+  .prefix = УО2
 
-rank-RMC_WarrantOfficer1 = Прапорщик 1-го класса
-  .prefix = Прап. 1кл.
+rank-RMC_WarrantOfficer1 = Уоррент-офицер 1-го класса
+  .prefix = УО1
 
 rank-RMC_OfficerCader = Курсант-офицер
   .prefix = Курс.

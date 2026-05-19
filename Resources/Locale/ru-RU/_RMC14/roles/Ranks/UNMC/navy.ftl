@@ -31,8 +31,8 @@ rank-RMCRankNavyMasterChiefPettyOfficer = Мастер-чиф
 rank-RMCRankNavyCommandMasterChiefPettyOfficer = Главный мастер-чиф
   .prefix = Гл. мастер-чиф
 
-rank-RMCRankNavyEnsign = Мичман
-  .prefix = Мич.
+rank-RMCRankNavyEnsign = Энсин
+  .prefix = Энс.
 
 rank-RMCRankNavyLieutenantJuniorGrade = Лейтенант-юниор
   .prefix = Лейт-юн.

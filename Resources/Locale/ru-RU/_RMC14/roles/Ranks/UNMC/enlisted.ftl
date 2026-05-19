@@ -22,20 +22,20 @@ rank-RMCRankFirstLT = Первый лейтенант
 rank-RMCRankSecondLT = Второй лейтенант
   .prefix = 2-й Лейт.
 
-rank-RMCRankChiefWarrantOfficer5 = Старший прапорщик 5-го класса
-  .prefix = Ст. Прап. 5
+rank-RMCRankChiefWarrantOfficer5 = Старший уоррент-офицер 5-го класса
+  .prefix = СУО5
 
-rank-RMCRankChiefWarrantOfficer4 = Старший прапорщик 4-го класса
-  .prefix = Ст. Прап. 4
+rank-RMCRankChiefWarrantOfficer4 = Старший уоррент-офицер 4-го класса
+  .prefix = СУО4
 
-rank-RMCRankChiefWarrantOfficer3 = Старший прапорщик 3-го класса
-  .prefix = Ст. Прап. 3
+rank-RMCRankChiefWarrantOfficer3 = Старший уоррент-офицер 3-го класса
+  .prefix = СУО3
 
-rank-RMCRankChiefWarrantOfficer = Старший прапорщик 2-го класса
-  .prefix = Ст. Прап. 2
+rank-RMCRankChiefWarrantOfficer = Старший уоррент-офицер 2-го класса
+  .prefix = СУО2
 
-rank-RMCRankWarrantOfficer = Прапорщик
-  .prefix = Прап.
+rank-RMCRankWarrantOfficer = Уоррент-офицер
+  .prefix = УО
 
 rank-RMCRankSergeantMajor = Сержант-майор
   .prefix = Серж-майор

@@ -43,20 +43,20 @@ rank-USArmy_SergeantMajorArmy = Сержант-майор армии
 rank-USArmy_SEAChairman = Старший советник при председателе
   .prefix = ССПР.
 
-rank-USArmy_WarrantOfficer1 = Прапорщик 1-го класса
-  .prefix = Прап. 1кл.
+rank-USArmy_WarrantOfficer1 = Уоррент-офицер 1-го класса
+  .prefix = УО1
 
-rank-USArmy_ChiefWarrantOfficer2 = Старший прапорщик 2-го класса
-  .prefix = Ст. Прап. 2
+rank-USArmy_ChiefWarrantOfficer2 = Старший уоррент-офицер 2-го класса
+  .prefix = СУО2
 
-rank-USArmy_ChiefWarrantOfficer3 = Старший прапорщик 3-го класса
-  .prefix = Ст. Прап. 3
+rank-USArmy_ChiefWarrantOfficer3 = Старший уоррент-офицер 3-го класса
+  .prefix = СУО3
 
-rank-USArmy_ChiefWarrantOfficer4 = Старший прапорщик 4-го класса
-  .prefix = Ст. Прап. 4
+rank-USArmy_ChiefWarrantOfficer4 = Старший уоррент-офицер 4-го класса
+  .prefix = СУО4
 
-rank-USArmy_ChiefWarrantOfficer5 = Старший прапорщик 5-го класса
-  .prefix = Ст. Прап. 5
+rank-USArmy_ChiefWarrantOfficer5 = Старший уоррент-офицер 5-го класса
+  .prefix = СУО5
 
 rank-USArmy_SecondLieutenant = Второй лейтенант
   .prefix = 2-й Лейт.
