@@ -13,7 +13,7 @@ public sealed partial class SubmissionStorageSystem : EntitySystem
     [Dependency] private ColonyBudgetSystem _colonyBudget = default!;
     [Dependency] private AmbassadorConsoleSystem _ambassador = default!;
     [Dependency] private CorporateConsoleSystem _corporateConsole = default!;
-
+ 
     public override void Initialize()
     {
         base.Initialize();
@@ -62,16 +62,6 @@ public sealed partial class SubmissionStorageSystem : EntitySystem
             reward = amount * mult;
 
         PredictedQueueDel(args.Entity);
-
-        // RuCM change start
-        // Corporate submission points bypass tariff entirely.
-        if (submission.IsCorporate)
-        {
-            if (reward > 0f)
-                _corporateConsole.AddToCorporateBudget(reward);
-            return;
-        }
-        // RuCM change end
 
         // Split: tariff % goes to corporate budget, remainder to colony budget
         var tariffAmount = reward * tariff;
