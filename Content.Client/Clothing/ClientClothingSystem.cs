@@ -50,6 +50,7 @@ public sealed partial class ClientClothingSystem : ClothingSystem
     [Dependency] private InventorySystem _inventorySystem = default!;
     [Dependency] private DisplacementMapSystem _displacement = default!;
     [Dependency] private SpriteSystem _sprite = default!;
+    private readonly Dictionary<EntityUid, (Sex? Sex, string? SpeciesId)> _lastKnownAppearance = new(); // RuMC edit
 
     public override void Initialize()
     {
@@ -61,6 +62,7 @@ public sealed partial class ClientClothingSystem : ClothingSystem
         SubscribeLocalEvent<InventoryComponent, VisualsChangedEvent>(OnVisualsChanged);
         SubscribeLocalEvent<SpriteComponent, DidUnequipEvent>(OnDidUnequip);
         SubscribeLocalEvent<InventoryComponent, AppearanceChangeEvent>(OnAppearanceUpdate);
+        SubscribeLocalEvent<InventoryComponent, EntityTerminatingEvent>(OnInventoryTerminating); // RuMC edit
     }
 
     private void OnAppearanceUpdate(EntityUid uid, InventoryComponent component, ref AppearanceChangeEvent args)
@@ -69,7 +71,18 @@ public sealed partial class ClientClothingSystem : ClothingSystem
         if (args.Sprite == null)
             return;
 
-        UpdateAllSlots(uid, component);
+        // RuCM edit start
+        var currentSex = CompOrNull<HumanoidAppearanceComponent>(uid)?.Sex;
+        var currentSpeciesId = component.SpeciesId;
+
+        if (!_lastKnownAppearance.TryGetValue(uid, out var last)
+            || last.Sex != currentSex
+            || last.SpeciesId != currentSpeciesId)
+        {
+            _lastKnownAppearance[uid] = (currentSex, currentSpeciesId);
+            UpdateAllSlots(uid, component);
+        }
+        // RuCM edit end
 
         // No clothing equipped -> make sure the layer is hidden, though this should already be handled by on-unequip.
         if (_sprite.LayerMapTryGet((uid, args.Sprite), HumanoidVisualLayers.StencilMask, out var layer, false))
@@ -77,6 +90,11 @@ public sealed partial class ClientClothingSystem : ClothingSystem
             DebugTools.Assert(!args.Sprite[layer].Visible);
             _sprite.LayerSetVisible((uid, args.Sprite), layer, false);
         }
+    }
+
+    private void OnInventoryTerminating(Entity<InventoryComponent> entity, ref EntityTerminatingEvent args) // RuMC edit
+    {
+        _lastKnownAppearance.Remove(entity.Owner);
     }
 
     private void OnInventoryTemplateUpdated(Entity<ClothingComponent> ent, ref InventoryTemplateUpdated args)
