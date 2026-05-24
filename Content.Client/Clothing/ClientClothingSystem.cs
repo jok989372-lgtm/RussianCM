@@ -71,7 +71,7 @@ public sealed partial class ClientClothingSystem : ClothingSystem
         if (args.Sprite == null)
             return;
 
-        // RuCM edit start
+        // RuMC edit start
         var currentSex = CompOrNull<HumanoidAppearanceComponent>(uid)?.Sex;
         var currentSpeciesId = component.SpeciesId;
 
@@ -82,7 +82,7 @@ public sealed partial class ClientClothingSystem : ClothingSystem
             _lastKnownAppearance[uid] = (currentSex, currentSpeciesId);
             UpdateAllSlots(uid, component);
         }
-        // RuCM edit end
+        // RuMC edit end
 
         // No clothing equipped -> make sure the layer is hidden, though this should already be handled by on-unequip.
         if (_sprite.LayerMapTryGet((uid, args.Sprite), HumanoidVisualLayers.StencilMask, out var layer, false))
