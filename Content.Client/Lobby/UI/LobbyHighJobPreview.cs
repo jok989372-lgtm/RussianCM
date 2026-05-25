@@ -52,10 +52,9 @@ internal static class LobbyHighJobPreview
 
     public static string GetDisplayJobName(JobPrototype job)
     {
-        var name = string.IsNullOrWhiteSpace(job.SpawnMenuRoleName)
-            ? job.LocalizedName
-            : job.LocalizedSpawnMenuRoleName!; // RuMC edit
-
+        var name = !string.IsNullOrWhiteSpace(job.SpawnMenuRoleName)
+            ? (Loc.TryGetString(job.SpawnMenuRoleName, out var loc) ? loc : job.SpawnMenuRoleName)
+            : job.LocalizedName;
         return TrimHiddenFactionSuffix(name);
     }
 

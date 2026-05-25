@@ -116,3 +116,18 @@ humanoid-profile-editor-threat-cultist = Культисты
 humanoid-profile-editor-threat-wendigo = Вендиго
 humanoid-profile-editor-threat-abomination = Мерзости
 humanoid-profile-editor-threat-tribal = Дикари
+# Missing entries synced from en-US
+
+humanoid-profile-editor-job-fallback-label = Резервное задание
+
+humanoid-profile-editor-insurgency-tab = Повстанческое движение
+
+humanoid-profile-editor-colony-fall-tab = Колония Фолл
+
+humanoid-profile-editor-distress-signal-tab = Сигнал бедствия
+
+humanoid-profile-editor-government-jobs-tab = Государственные вакансии
+
+humanoid-profile-editor-insurgency-jobs-tab = Вакансии повстанцев
+
+humanoid-profile-editor-threat-roles-tab = Угрозы
