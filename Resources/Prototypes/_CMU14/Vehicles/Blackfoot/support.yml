@@ -14,9 +14,9 @@
   - type: BlackfootFuelPump
   - type: BlackfootPackableSupport
     packedPrototype: CMUBlackfootFuelPumpCrate
-    initialPopup: The fuel pump anchor bolts are loosened.
-    panelPopup: The fuel pump service panel is opened.
-    packedPopup: The Blackfoot fuel pump is packed into its case.
+    initialPopup: cmu-blackfoot-support-fuel-pump-anchors-loosened
+    panelPopup: cmu-blackfoot-support-fuel-pump-panel-opened
+    packedPopup: cmu-blackfoot-support-fuel-pump-packed
   - type: RemoveComponents
     components:
     - type: Pullable
@@ -34,8 +34,8 @@
   - type: InteractionOutline
   - type: BlackfootDeployableSupport
     prototype: CMUBlackfootLandingPad
-    toolPopup: Use a wrench to unfold the Blackfoot landing pad.
-    deployPopup: The folded Blackfoot landing pad is set in place.
+    toolPopup: cmu-blackfoot-support-use-wrench-unfold-pad
+    deployPopup: cmu-blackfoot-support-pad-set-in-place
     requireClearFootprint: true
     clearFootprint: 3,3
     useFixedDeployRotation: true
@@ -91,8 +91,8 @@
   - type: InteractionOutline
   - type: BlackfootDeployableSupport
     prototype: CMUBlackfootFuelPump
-    toolPopup: Place this case on a deployed Blackfoot landing pad, then wrench it into the fuel pump mount.
-    deployPopup: The Blackfoot fuel pump is mounted to the landing pad.
+    toolPopup: cmu-blackfoot-support-place-pump-case
+    deployPopup: cmu-blackfoot-support-fuel-pump-mounted
     requireClearFootprint: true
     clearFootprint: 1,1
     requireLandingPad: true
@@ -114,8 +114,8 @@
   - type: InteractionOutline
   - type: BlackfootDeployableSupport
     prototype: CMUBlackfootFlightComputer
-    toolPopup: Place this case on a deployed Blackfoot landing pad, then wrench it into the flight computer mount.
-    deployPopup: The Blackfoot flight computer is mounted to the landing pad.
+    toolPopup: cmu-blackfoot-support-place-computer-case
+    deployPopup: cmu-blackfoot-support-flight-computer-mounted
     requireClearFootprint: true
     clearFootprint: 1,1
     requireLandingPad: true

@@ -50,7 +50,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
             return;
 
         args.Handled = true;
-        _popup.PopupEntity(ent.Comp.ToolPopup, ent, args.User, PopupType.SmallCaution);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.ToolPopup), ent, args.User, PopupType.SmallCaution);
     }
 
     private void OnDeployInteractUsing(Entity<BlackfootDeployableSupportComponent> ent, ref InteractUsingEvent args)
@@ -61,14 +61,14 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
         if (!_tool.HasQuality(args.Used, ent.Comp.DeployTool))
         {
             args.Handled = true;
-            _popup.PopupEntity(ent.Comp.ToolPopup, ent, args.User, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.ToolPopup), ent, args.User, PopupType.SmallCaution);
             return;
         }
 
         if (!CanDeploy(ent, out var reason))
         {
             args.Handled = true;
-            _popup.PopupEntity(reason, ent, args.User, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString(reason), ent, args.User, PopupType.SmallCaution);
             return;
         }
 
@@ -89,7 +89,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
         if (!CanDeploy(ent, out var reason) ||
             !TryGetDeploymentTarget(ent, out var coordinates, out var rotation, out var linkedPad, out reason))
         {
-            _popup.PopupEntity(reason, ent, args.User, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString(reason), ent, args.User, PopupType.SmallCaution);
             return;
         }
 
@@ -109,7 +109,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
         if (ent.Comp.DeleteOnDeploy)
             QueueDel(ent.Owner);
 
-        _popup.PopupEntity(ent.Comp.DeployPopup, deployed, args.User);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.DeployPopup), deployed, args.User);
     }
 
     private void OnPackableActivate(Entity<BlackfootPackableSupportComponent> ent, ref ActivateInWorldEvent args)
@@ -121,7 +121,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
             return;
 
         args.Handled = true;
-        _popup.PopupEntity(GetPackToolPopup(ent.Comp), ent, args.User, PopupType.SmallCaution);
+        _popup.PopupEntity(Loc.GetString(GetPackToolPopup(ent.Comp)), ent, args.User, PopupType.SmallCaution);
     }
 
     private void OnPackInteractUsing(Entity<BlackfootPackableSupportComponent> ent, ref InteractUsingEvent args)
@@ -133,14 +133,14 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
         if (!_tool.HasQuality(args.Used, tool))
         {
             args.Handled = true;
-            _popup.PopupEntity(GetPackToolPopup(ent.Comp), ent, args.User, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString(GetPackToolPopup(ent.Comp)), ent, args.User, PopupType.SmallCaution);
             return;
         }
 
         if (!CanPack(ent, out var reason))
         {
             args.Handled = true;
-            _popup.PopupEntity(reason, ent, args.User, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString(reason), ent, args.User, PopupType.SmallCaution);
             return;
         }
 
@@ -181,13 +181,13 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
 
         if (!CanPack(ent, out var reason))
         {
-            _popup.PopupEntity(reason, ent, args.User, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString(reason), ent, args.User, PopupType.SmallCaution);
             return;
         }
 
         ent.Comp.Stage = BlackfootSupportPackStage.AnchorsLoosened;
         Dirty(ent);
-        _popup.PopupEntity(ent.Comp.InitialPopup, ent, args.User);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.InitialPopup), ent, args.User);
     }
 
     private void OnPanelScrewdriverDoAfter(Entity<BlackfootPackableSupportComponent> ent, ref BlackfootSupportPanelScrewdriverDoAfterEvent args)
@@ -200,13 +200,13 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
 
         if (!CanPack(ent, out var reason))
         {
-            _popup.PopupEntity(reason, ent, args.User, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString(reason), ent, args.User, PopupType.SmallCaution);
             return;
         }
 
         ent.Comp.Stage = BlackfootSupportPackStage.PanelOpen;
         Dirty(ent);
-        _popup.PopupEntity(ent.Comp.PanelPopup, ent, args.User);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.PanelPopup), ent, args.User);
     }
 
     private void OnFinalWrenchDoAfter(Entity<BlackfootPackableSupportComponent> ent, ref BlackfootSupportFinalWrenchDoAfterEvent args)
@@ -219,7 +219,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
 
         if (!CanPack(ent, out var reason))
         {
-            _popup.PopupEntity(reason, ent, args.User, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString(reason), ent, args.User, PopupType.SmallCaution);
             return;
         }
 
@@ -230,7 +230,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
         _transform.SetLocalRotation(packed, xform.LocalRotation);
         QueueDel(ent.Owner);
 
-        _popup.PopupEntity(ent.Comp.PackedPopup, packed, args.User);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.PackedPopup), packed, args.User);
     }
 
     private bool CanDeploy(Entity<BlackfootDeployableSupportComponent> ent, out string reason)
@@ -303,7 +303,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
         var xform = Transform(ent.Owner);
         if (xform.MapUid is not { } mapUid)
         {
-            reason = "Place the Blackfoot support case on a deployed landing pad.";
+            reason = "cmu-blackfoot-support-place-case-on-pad";
             return false;
         }
 
@@ -331,7 +331,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
 
         if (pad.Owner == default)
         {
-            reason = "Place the Blackfoot support case on a deployed landing pad, then wrench it into the mount.";
+            reason = "cmu-blackfoot-support-place-case-wrench";
             return false;
         }
 
@@ -350,7 +350,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
             case BlackfootLandingPadAttachment.FuelPump:
                 if (pad.Comp.FuelPump is { } pump && Exists(pump))
                 {
-                    reason = "This Blackfoot landing pad already has a mounted fuel pump.";
+                    reason = "cmu-blackfoot-support-pad-has-fuel-pump";
                     return false;
                 }
 
@@ -361,7 +361,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
                 {
                     if (computer.LandingPad == pad.Owner && Exists(uid))
                     {
-                        reason = "This Blackfoot landing pad already has a mounted flight computer.";
+                        reason = "cmu-blackfoot-support-pad-has-flight-computer";
                         return false;
                     }
                 }
@@ -406,7 +406,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
             centerTile.Value.Tile.IsEmpty ||
             !TryComp(centerTile.Value.GridUid, out MapGridComponent? grid))
         {
-            reason = "The Blackfoot support equipment must be deployed on valid ground.";
+            reason = "cmu-blackfoot-support-valid-ground";
             return false;
         }
 
@@ -421,14 +421,13 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
                 if (!_map.TryGetTileRef(centerTile.Value.GridUid, grid, tile, out var tileRef) ||
                     tileRef.Tile.IsEmpty)
                 {
-                    reason = $"The Blackfoot support equipment needs floor at deployment offset {x},{y}.";
+                    reason = "cmu-blackfoot-support-needs-floor";
                     return false;
                 }
 
                 if (IsDeploymentTileBlocked(tileRef, grid, SupportBlockMask, ignoredEntity, out var blocker))
                 {
-                    var blockerName = blocker is { } blockerUid ? Name(blockerUid) : "something";
-                    reason = $"The Blackfoot support equipment is blocked by {blockerName} at deployment offset {x},{y}.";
+                    reason = "cmu-blackfoot-support-blocked";
                     return false;
                 }
             }
@@ -509,20 +508,20 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
         {
             if (pad.Refueling || pad.Recharging)
             {
-                reason = "Stop the Blackfoot service cycle before packing the landing pad.";
+                reason = "cmu-blackfoot-support-stop-cycle-before-pad";
                 return false;
             }
 
             if (pad.ParkedAircraft != null ||
                 FindParkedAircraft((ent.Owner, pad)) != null)
             {
-                reason = "Move the Blackfoot off the landing pad before packing it.";
+                reason = "cmu-blackfoot-support-move-aircraft-before-pad";
                 return false;
             }
 
             if (pad.FuelPump is { } pump && Exists(pump))
             {
-                reason = "Pack the linked fuel pump before packing the landing pad.";
+                reason = "cmu-blackfoot-support-pack-pump-before-pad";
                 return false;
             }
         }
@@ -532,7 +531,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
             TryComp(linkedPad, out BlackfootLandingPadComponent? linkedPadComp) &&
             linkedPadComp.Refueling)
         {
-            reason = "Stop refueling before packing the fuel pump.";
+            reason = "cmu-blackfoot-support-stop-refuel-before-pump";
             return false;
         }
 
@@ -541,7 +540,7 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
             TryComp(computerPad, out BlackfootLandingPadComponent? computerPadComp) &&
             (computerPadComp.Refueling || computerPadComp.Recharging))
         {
-            reason = "Stop the Blackfoot service cycle before packing the flight computer.";
+            reason = "cmu-blackfoot-support-stop-cycle-before-computer";
             return false;
         }
 
@@ -666,9 +665,9 @@ public sealed partial class BlackfootSupportDeploySystem : EntitySystem
     {
         return comp.Stage switch
         {
-            BlackfootSupportPackStage.Secured => "Use a wrench to loosen the anchor bolts.",
-            BlackfootSupportPackStage.AnchorsLoosened => "Use a screwdriver to open the service panel.",
-            BlackfootSupportPackStage.PanelOpen => "Use a wrench to fold and pack the support equipment.",
+            BlackfootSupportPackStage.Secured => "cmu-blackfoot-support-use-wrench-anchors",
+            BlackfootSupportPackStage.AnchorsLoosened => "cmu-blackfoot-support-use-screwdriver-panel",
+            BlackfootSupportPackStage.PanelOpen => "cmu-blackfoot-support-use-wrench-pack",
             _ => comp.ToolPopup,
         };
     }

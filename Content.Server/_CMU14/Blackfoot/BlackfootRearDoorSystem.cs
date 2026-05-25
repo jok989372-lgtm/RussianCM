@@ -56,14 +56,16 @@ public sealed partial class BlackfootRearDoorSystem : EntitySystem
             vehicle is not { } vehicleUid ||
             !TryComp(vehicleUid, out BlackfootRearDoorComponent? rearDoor))
         {
-            _popup.PopupEntity("This control is not linked to a Blackfoot rear door.", args.User, args.User, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString("cmu-blackfoot-rear-door-control-unlinked"), args.User, args.User, PopupType.SmallCaution);
             return;
         }
 
         rearDoor.Open = !rearDoor.Open;
         Dirty(vehicleUid, rearDoor);
 
-        _popup.PopupEntity(rearDoor.Open ? "Rear door opened." : "Rear door closed.", args.User, args.User);
+        _popup.PopupEntity(Loc.GetString(rearDoor.Open
+            ? "cmu-blackfoot-flight-rear-door-opened"
+            : "cmu-blackfoot-flight-rear-door-closed"), args.User, args.User);
         args.Handled = true;
     }
 
@@ -129,7 +131,7 @@ public sealed partial class BlackfootRearDoorSystem : EntitySystem
         if (ent.Comp.Open || args.EntryIndex != ent.Comp.RearEntryIndex)
             return;
 
-        _popup.PopupEntity("Open the rear door before boarding from the back.", args.User, args.User, PopupType.SmallCaution);
+        _popup.PopupEntity(Loc.GetString("cmu-blackfoot-rear-door-open-before-boarding"), args.User, args.User, PopupType.SmallCaution);
         args.Cancelled = true;
     }
 
@@ -138,7 +140,7 @@ public sealed partial class BlackfootRearDoorSystem : EntitySystem
         if (ent.Comp.Open || !HasComp<BlackfootRearDoorVisualsComponent>(args.Exit))
             return;
 
-        _popup.PopupEntity("Open the rear door before exiting from the back.", args.User, args.User, PopupType.SmallCaution);
+        _popup.PopupEntity(Loc.GetString("cmu-blackfoot-rear-door-open-before-exiting"), args.User, args.User, PopupType.SmallCaution);
         args.Cancelled = true;
     }
 }

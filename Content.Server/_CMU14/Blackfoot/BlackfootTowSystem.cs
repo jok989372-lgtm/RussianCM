@@ -38,7 +38,7 @@ public sealed partial class BlackfootTowSystem : EntitySystem
 
             if (ent.Comp.TowedEntity is { } towed && Exists(towed))
             {
-                Popup(args.User, "Use the Detach tug verb to release the tow gear.", PopupType.SmallCaution);
+                Popup(args.User, "cmu-blackfoot-tow-use-detach-verb", PopupType.SmallCaution);
                 return;
             }
 
@@ -60,7 +60,7 @@ public sealed partial class BlackfootTowSystem : EntitySystem
         }
 
         args.Handled = true;
-        Popup(args.User, "Use the Detach tug verb to release the tow gear.", PopupType.SmallCaution);
+        Popup(args.User, "cmu-blackfoot-tow-use-detach-verb", PopupType.SmallCaution);
     }
 
     private void OnGetAlternativeVerbs(Entity<BlackfootTowComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -77,7 +77,9 @@ public sealed partial class BlackfootTowSystem : EntitySystem
         {
             args.Verbs.Add(new AlternativeVerb
             {
-                Text = ent.Comp.TowedEntity is { } towed && Exists(towed) ? "Detach tug" : "Attach tug",
+                Text = Loc.GetString(ent.Comp.TowedEntity is { } towed && Exists(towed)
+                    ? "cmu-blackfoot-tow-detach-verb"
+                    : "cmu-blackfoot-tow-attach-verb"),
                 Priority = 2,
                 Act = () => ToggleTug(ent.Owner, user),
             });
@@ -91,7 +93,7 @@ public sealed partial class BlackfootTowSystem : EntitySystem
         {
             args.Verbs.Add(new AlternativeVerb
             {
-                Text = "Detach tug",
+                Text = Loc.GetString("cmu-blackfoot-tow-detach-verb"),
                 Priority = 2,
                 Act = () => Detach((tug, tugTow), user),
             });
@@ -103,7 +105,7 @@ public sealed partial class BlackfootTowSystem : EntitySystem
 
         args.Verbs.Add(new AlternativeVerb
         {
-            Text = "Attach tug",
+            Text = Loc.GetString("cmu-blackfoot-tow-attach-verb"),
             Priority = 2,
             Act = () => Attach(nearbyTug, ent, user),
         });
@@ -155,13 +157,13 @@ public sealed partial class BlackfootTowSystem : EntitySystem
         out string reason)
     {
         target = default;
-        reason = "No towable Blackfoot is close enough.";
+        reason = "cmu-blackfoot-tow-none-close";
 
         var tugXform = Transform(tug);
         var tugMap = tugXform.MapUid;
         if (tugMap == null)
         {
-            reason = "The tug is not on a valid map.";
+            reason = "cmu-blackfoot-tow-tug-invalid-map";
             return false;
         }
 
@@ -198,7 +200,7 @@ public sealed partial class BlackfootTowSystem : EntitySystem
             if (tow.TowVehicle != null)
             {
                 foundBlocked = true;
-                reason = "That Blackfoot is already attached to towing gear.";
+                reason = "cmu-blackfoot-tow-already-attached";
                 continue;
             }
 
@@ -210,7 +212,7 @@ public sealed partial class BlackfootTowSystem : EntitySystem
             return true;
 
         if (!foundBlocked)
-            reason = "No towable Blackfoot is close enough.";
+            reason = "cmu-blackfoot-tow-none-close";
 
         return false;
     }
@@ -221,11 +223,11 @@ public sealed partial class BlackfootTowSystem : EntitySystem
         out string reason)
     {
         tug = default;
-        reason = "No Blackfoot aerospace tug is parked under the cockpit.";
+        reason = "cmu-blackfoot-tow-no-tug-under-cockpit";
 
         if (!TryComp(target, out BlackfootFlightComponent? flight))
         {
-            reason = "That cannot be moved with the Blackfoot tug.";
+            reason = "cmu-blackfoot-tow-target-invalid";
             return false;
         }
 
@@ -233,7 +235,7 @@ public sealed partial class BlackfootTowSystem : EntitySystem
         var targetMap = targetXform.MapUid;
         if (targetMap == null)
         {
-            reason = "The Blackfoot is not on a valid map.";
+            reason = "cmu-blackfoot-tow-blackfoot-invalid-map";
             return false;
         }
 
@@ -274,7 +276,7 @@ public sealed partial class BlackfootTowSystem : EntitySystem
             return true;
 
         if (!foundBlocked)
-            reason = "No Blackfoot aerospace tug is parked under the cockpit.";
+            reason = "cmu-blackfoot-tow-no-tug-under-cockpit";
 
         return false;
     }
@@ -300,19 +302,19 @@ public sealed partial class BlackfootTowSystem : EntitySystem
                 if (targetTow.AllowAirborneTowing && tugTow.AllowAirborneTowing)
                     return true;
 
-                reason = "The tug cannot attach while the Blackfoot is airborne.";
+                reason = "cmu-blackfoot-tow-airborne";
                 return false;
             case BlackfootFlightState.Idling:
-                reason = "Shut the Blackfoot engines down before attaching towing gear.";
+                reason = "cmu-blackfoot-tow-engines-on";
                 return false;
             case BlackfootFlightState.Stowed:
-                reason = "This Blackfoot cannot be towed while stowed.";
+                reason = "cmu-blackfoot-tow-stowed";
                 return false;
             case BlackfootFlightState.Crashed:
-                reason = "This Blackfoot cannot be towed while crashed.";
+                reason = "cmu-blackfoot-tow-crashed";
                 return false;
             default:
-                reason = "The Blackfoot cannot be towed in its current state.";
+                reason = "cmu-blackfoot-tow-invalid-state";
                 return false;
         }
     }
@@ -330,7 +332,7 @@ public sealed partial class BlackfootTowSystem : EntitySystem
         _transform.SetLocalRotation(tug.Owner, Angle.FromDegrees(tug.Comp.AttachRotationDegrees));
         SetTugCollision(tug.Owner, false);
 
-        Popup(user, "Tug attached. The Blackfoot pilot can taxi the aircraft.");
+        Popup(user, "cmu-blackfoot-tow-attached");
     }
 
     private void Detach(Entity<BlackfootTowComponent> tug, EntityUid user)
@@ -366,7 +368,7 @@ public sealed partial class BlackfootTowSystem : EntitySystem
 
         SetTugCollision(tug.Owner, true);
         SetTugPullable(tug, true);
-        Popup(user, "Tug detached.");
+        Popup(user, "cmu-blackfoot-tow-detached");
     }
 
     private void SetTugCollision(EntityUid tug, bool canCollide)
@@ -399,6 +401,6 @@ public sealed partial class BlackfootTowSystem : EntitySystem
 
     private void Popup(EntityUid user, string message, PopupType type = PopupType.Small)
     {
-        _popup.PopupCursor(message, user, type);
+        _popup.PopupCursor(Loc.GetString(message), user, type);
     }
 }

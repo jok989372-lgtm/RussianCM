@@ -52,11 +52,11 @@ public sealed partial class SharedBlackfootWeaponSystem : EntitySystem
         {
             reason = flight.State switch
             {
-                BlackfootFlightState.Stowed => "The Blackfoot is stowed.",
-                BlackfootFlightState.TakingOff => "The Blackfoot weapons are safed during takeoff.",
-                BlackfootFlightState.Landing => "The Blackfoot weapons are safed during landing.",
-                BlackfootFlightState.Crashed => "The Blackfoot is too damaged to fire.",
-                _ => "The Blackfoot cannot fire in the current flight state.",
+                BlackfootFlightState.Stowed => "cmu-blackfoot-weapon-stowed",
+                BlackfootFlightState.TakingOff => "cmu-blackfoot-weapon-takeoff",
+                BlackfootFlightState.Landing => "cmu-blackfoot-weapon-landing",
+                BlackfootFlightState.Crashed => "cmu-blackfoot-weapon-crashed",
+                _ => "cmu-blackfoot-weapon-invalid-state",
             };
             return false;
         }
@@ -65,20 +65,20 @@ public sealed partial class SharedBlackfootWeaponSystem : EntitySystem
             stealth.Enabled &&
             stealth.DisableWeapons)
         {
-            reason = "The Blackfoot cannot fire while stealth is active.";
+            reason = "cmu-blackfoot-weapon-stealth";
             return false;
         }
 
         if (IsDoorGun(hardpointType) &&
             (!TryComp(vehicle, out BlackfootRearDoorComponent? rearDoor) || !rearDoor.Open))
         {
-            reason = "Open the rear door before firing the door gun.";
+            reason = "cmu-blackfoot-weapon-rear-door-closed";
             return false;
         }
 
         if (IsLauncher(hardpointType) && !IsAirborneWeaponState(flight.State))
         {
-            reason = "The Blackfoot launchers can only fire while airborne.";
+            reason = "cmu-blackfoot-weapon-launchers-airborne";
             return false;
         }
 
@@ -113,6 +113,6 @@ public sealed partial class SharedBlackfootWeaponSystem : EntitySystem
     private void Popup(EntityUid user, EntityUid fallback, string message)
     {
         var target = Exists(user) ? user : fallback;
-        _popup.PopupEntity(message, target, target, PopupType.SmallCaution);
+        _popup.PopupEntity(Loc.GetString(message), target, target, PopupType.SmallCaution);
     }
 }

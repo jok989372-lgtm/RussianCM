@@ -183,19 +183,19 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
             case BlackfootFlightState.Grounded:
                 if (HasTowConnection(vehicle))
                 {
-                    Popup(args.Performer, "Disconnect towing gear before starting the engines.", PopupType.SmallCaution);
+                    Popup(args.Performer, "cmu-blackfoot-flight-disconnect-tow-before-engine", PopupType.SmallCaution);
                     break;
                 }
 
                 SetState(vehicle, flight, BlackfootFlightState.Idling);
-                Popup(args.Performer, "Blackfoot engines idling.");
+                Popup(args.Performer, "cmu-blackfoot-flight-engines-idling");
                 break;
             case BlackfootFlightState.Idling:
                 SetState(vehicle, flight, BlackfootFlightState.Grounded);
-                Popup(args.Performer, "Blackfoot engines offline.");
+                Popup(args.Performer, "cmu-blackfoot-flight-engines-offline");
                 break;
             default:
-                Popup(args.Performer, "The engines cannot be toggled in the current flight state.", PopupType.SmallCaution);
+                Popup(args.Performer, "cmu-blackfoot-flight-engines-invalid-state", PopupType.SmallCaution);
                 break;
         }
 
@@ -213,7 +213,7 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
             return;
 
         StartTimedTransition(flight, BlackfootFlightState.TakingOff, flight.Comp.TakeoffDuration);
-        Popup(args.Performer, "Blackfoot takeoff sequence started.");
+        Popup(args.Performer, "cmu-blackfoot-flight-takeoff-started");
         UpdatePilotActions(ent.Owner, ent.Comp, flight);
     }
 
@@ -228,7 +228,7 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
             return;
 
         StartTimedTransition(flight, BlackfootFlightState.Landing, flight.Comp.LandingDuration);
-        Popup(args.Performer, "Blackfoot landing sequence started.");
+        Popup(args.Performer, "cmu-blackfoot-flight-landing-started");
         UpdatePilotActions(ent.Owner, ent.Comp, flight);
     }
 
@@ -244,15 +244,15 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
             case BlackfootFlightState.VTOL:
                 flight.Comp.MovementMode = BlackfootMovementMode.Flight;
                 SetState(flight.Owner, flight, BlackfootFlightState.Flight);
-                Popup(args.Performer, "Blackfoot flight mode engaged.");
+                Popup(args.Performer, "cmu-blackfoot-flight-mode-flight");
                 break;
             case BlackfootFlightState.Flight:
                 flight.Comp.MovementMode = BlackfootMovementMode.VTOL;
                 SetState(flight.Owner, flight, BlackfootFlightState.VTOL);
-                Popup(args.Performer, "Blackfoot VTOL mode engaged.");
+                Popup(args.Performer, "cmu-blackfoot-flight-mode-vtol");
                 break;
             default:
-                Popup(args.Performer, "Flight mode can only be changed while airborne.", PopupType.SmallCaution);
+                Popup(args.Performer, "cmu-blackfoot-flight-mode-airborne-only", PopupType.SmallCaution);
                 break;
         }
 
@@ -268,13 +268,15 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
 
         if (!TryComp(vehicle, out BlackfootRearDoorComponent? rearDoor))
         {
-            Popup(args.Performer, "This Blackfoot has no rear door controls.", PopupType.SmallCaution);
+            Popup(args.Performer, "cmu-blackfoot-flight-no-rear-door-controls", PopupType.SmallCaution);
             return;
         }
 
         rearDoor.Open = !rearDoor.Open;
         Dirty(vehicle, rearDoor);
-        Popup(args.Performer, rearDoor.Open ? "Rear door opened." : "Rear door closed.");
+        Popup(args.Performer, rearDoor.Open
+            ? "cmu-blackfoot-flight-rear-door-opened"
+            : "cmu-blackfoot-flight-rear-door-closed");
         UpdatePilotActions(ent.Owner, ent.Comp, flight);
     }
 
@@ -289,14 +291,14 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
         {
             case BlackfootFlightState.Grounded:
                 SetState(flight.Owner, flight, BlackfootFlightState.Stowed);
-                Popup(args.Performer, "Blackfoot stowed.");
+                Popup(args.Performer, "cmu-blackfoot-flight-stowed");
                 break;
             case BlackfootFlightState.Stowed:
                 SetState(flight.Owner, flight, BlackfootFlightState.Grounded);
-                Popup(args.Performer, "Blackfoot deployed.");
+                Popup(args.Performer, "cmu-blackfoot-flight-deployed");
                 break;
             default:
-                Popup(args.Performer, "The Blackfoot must be grounded to stow or deploy.", PopupType.SmallCaution);
+                Popup(args.Performer, "cmu-blackfoot-flight-stow-grounded-only", PopupType.SmallCaution);
                 break;
         }
 
@@ -387,44 +389,44 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
             case BlackfootFlightState.Idling:
                 break;
             case BlackfootFlightState.Stowed:
-                Popup(pilot, "Deploy the Blackfoot before takeoff.", PopupType.SmallCaution);
+                Popup(pilot, "cmu-blackfoot-flight-deploy-before-takeoff", PopupType.SmallCaution);
                 return false;
             case BlackfootFlightState.Grounded:
-                Popup(pilot, "Start the Blackfoot engines before takeoff.", PopupType.SmallCaution);
+                Popup(pilot, "cmu-blackfoot-flight-start-engines-before-takeoff", PopupType.SmallCaution);
                 return false;
             case BlackfootFlightState.TakingOff:
-                Popup(pilot, "The Blackfoot is already taking off.", PopupType.SmallCaution);
+                Popup(pilot, "cmu-blackfoot-flight-already-taking-off", PopupType.SmallCaution);
                 return false;
             case BlackfootFlightState.Crashed:
-                Popup(pilot, "The Blackfoot is too damaged to take off.", PopupType.SmallCaution);
+                Popup(pilot, "cmu-blackfoot-flight-too-damaged-takeoff", PopupType.SmallCaution);
                 return false;
             default:
-                Popup(pilot, "The Blackfoot must be idling before takeoff.", PopupType.SmallCaution);
+                Popup(pilot, "cmu-blackfoot-flight-idling-before-takeoff", PopupType.SmallCaution);
                 return false;
         }
 
         if (HasTowConnection(flight.Owner))
         {
-            Popup(pilot, "Disconnect towing gear before takeoff.", PopupType.SmallCaution);
+            Popup(pilot, "cmu-blackfoot-flight-disconnect-tow-before-takeoff", PopupType.SmallCaution);
             return false;
         }
 
         if (TryComp(flight, out BlackfootFuelPowerComponent? fuel) &&
             fuel.Fuel < fuel.MinimumTakeoffFuel)
         {
-            Popup(pilot, "The Blackfoot does not have enough fuel for takeoff.", PopupType.SmallCaution);
+            Popup(pilot, "cmu-blackfoot-flight-not-enough-fuel", PopupType.SmallCaution);
             return false;
         }
 
         if (!HasFunctionalThrusters(flight.Owner))
         {
-            Popup(pilot, "The Blackfoot needs functional thrusters before takeoff.", PopupType.SmallCaution);
+            Popup(pilot, "cmu-blackfoot-flight-needs-thrusters", PopupType.SmallCaution);
             return false;
         }
 
         if (!HasMapOffset(flight.Owner, flight.Comp.AirborneMapOffset))
         {
-            Popup(pilot, "No upper Z level is available for takeoff.", PopupType.SmallCaution);
+            Popup(pilot, "cmu-blackfoot-flight-no-upper-z", PopupType.SmallCaution);
             return false;
         }
 
@@ -442,8 +444,8 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
         if (flight.Comp.State != BlackfootFlightState.VTOL)
         {
             var message = flight.Comp.State == BlackfootFlightState.Flight
-                ? "Switch to VTOL mode before landing."
-                : "The Blackfoot must be airborne in VTOL mode before landing.";
+                ? "cmu-blackfoot-flight-switch-vtol-before-landing"
+                : "cmu-blackfoot-flight-vtol-before-landing";
 
             Popup(pilot, message, PopupType.SmallCaution);
             return false;
@@ -451,7 +453,7 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
 
         if (!HasMapOffset(flight.Owner, flight.Comp.GroundMapOffset))
         {
-            Popup(pilot, "No lower Z level is available for landing.", PopupType.SmallCaution);
+            Popup(pilot, "cmu-blackfoot-flight-no-lower-z", PopupType.SmallCaution);
             return false;
         }
 
@@ -480,7 +482,7 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
             !_zLevels.TryMove(flight.Owner, flight.Comp.AirborneMapOffset))
         {
             SetState(flight.Owner, flight, BlackfootFlightState.Idling);
-            PopupPilot(flight.Owner, reason ?? "Takeoff failed: the Blackfoot could not move to the upper Z level.", PopupType.SmallCaution);
+            PopupPilot(flight.Owner, reason ?? "cmu-blackfoot-flight-takeoff-failed-move", PopupType.SmallCaution);
             return;
         }
 
@@ -488,7 +490,7 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
         SetState(flight.Owner, flight, BlackfootFlightState.VTOL);
         SpawnShadow(flight);
         _viewToggle.RefreshOutsideViewers(flight.Owner);
-        PopupPilot(flight.Owner, "Blackfoot airborne in VTOL mode.");
+        PopupPilot(flight.Owner, "cmu-blackfoot-flight-airborne-vtol");
     }
 
     private void FinishLanding(Entity<BlackfootFlightComponent> flight)
@@ -497,7 +499,7 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
             !_zLevels.TryMove(flight.Owner, flight.Comp.GroundMapOffset))
         {
             SetState(flight.Owner, flight, BlackfootFlightState.VTOL);
-            PopupPilot(flight.Owner, reason ?? "Landing failed: the Blackfoot could not move to the lower Z level.", PopupType.SmallCaution);
+            PopupPilot(flight.Owner, reason ?? "cmu-blackfoot-flight-landing-failed-move", PopupType.SmallCaution);
             return;
         }
 
@@ -506,21 +508,21 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
         flight.Comp.MovementMode = BlackfootMovementMode.VTOL;
         SetState(flight.Owner, flight, BlackfootFlightState.Idling);
         _viewToggle.RefreshOutsideViewers(flight.Owner);
-        PopupPilot(flight.Owner, "Blackfoot landed.");
+        PopupPilot(flight.Owner, "cmu-blackfoot-flight-landed");
     }
 
     private bool TryMoveAltitude(Entity<BlackfootFlightComponent> flight, EntityUid pilot, int offset)
     {
         if (flight.Comp.State is not (BlackfootFlightState.VTOL or BlackfootFlightState.Flight))
         {
-            Popup(pilot, "Altitude can only be changed while the Blackfoot is airborne.", PopupType.SmallCaution);
+            Popup(pilot, "cmu-blackfoot-flight-altitude-airborne-only", PopupType.SmallCaution);
             return false;
         }
 
         var xform = Transform(flight.Owner);
         if (xform.MapUid is not { } currentMap)
         {
-            Popup(pilot, "The Blackfoot is not on a valid Z map.", PopupType.SmallCaution);
+            Popup(pilot, "cmu-blackfoot-flight-invalid-z-map", PopupType.SmallCaution);
             return false;
         }
 
@@ -529,8 +531,8 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
             Popup(
                 pilot,
                 offset > 0
-                    ? "There is no higher Z level for the Blackfoot to climb to."
-                    : "There is no lower Z level for the Blackfoot to descend to.",
+                    ? "cmu-blackfoot-flight-no-higher-z"
+                    : "cmu-blackfoot-flight-no-lower-z-descend",
                 PopupType.SmallCaution);
             return false;
         }
@@ -538,18 +540,20 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
         if (offset < 0 &&
             (targetMap.Value.Comp.Depth == 0 || TryValidateLandingFootprint(flight, out _)))
         {
-            Popup(pilot, "Use the landing sequence to descend to ground level.", PopupType.SmallCaution);
+            Popup(pilot, "cmu-blackfoot-flight-use-landing-sequence", PopupType.SmallCaution);
             return false;
         }
 
         if (!_zLevels.TryMove(flight.Owner, offset, currentMap))
         {
-            Popup(pilot, "The Blackfoot could not change altitude.", PopupType.SmallCaution);
+            Popup(pilot, "cmu-blackfoot-flight-altitude-failed", PopupType.SmallCaution);
             return false;
         }
 
         _viewToggle.RefreshOutsideViewers(flight.Owner);
-        Popup(pilot, offset > 0 ? "Blackfoot climbing one Z level." : "Blackfoot descending one Z level.");
+        Popup(pilot, offset > 0
+            ? "cmu-blackfoot-flight-climbing"
+            : "cmu-blackfoot-flight-descending");
         return true;
     }
 
@@ -809,19 +813,19 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
 
         if (!HasFunctionalThrusters(flight.Owner))
         {
-            reason = "Takeoff failed: the Blackfoot needs functional thrusters.";
+            reason = "cmu-blackfoot-flight-takeoff-failed-thrusters";
             return false;
         }
 
         if (!HasMapOffset(flight.Owner, flight.Comp.AirborneMapOffset))
         {
-            reason = "Takeoff failed: no upper Z level is available.";
+            reason = "cmu-blackfoot-flight-takeoff-failed-no-upper-z";
             return false;
         }
 
         if (!TryValidateTakeoffFootprint(flight, out var footprintReason))
         {
-            reason = $"Takeoff failed: {footprintReason}";
+            reason = footprintReason;
             return false;
         }
 
@@ -844,13 +848,13 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
 
         if (!HasMapOffset(flight.Owner, flight.Comp.GroundMapOffset))
         {
-            reason = "Landing failed: no lower Z level is available.";
+            reason = "cmu-blackfoot-flight-landing-failed-no-lower-z";
             return false;
         }
 
         if (!TryValidateLandingFootprint(flight, out var footprintReason))
         {
-            reason = $"Landing failed: {footprintReason}";
+            reason = footprintReason;
             return false;
         }
 
@@ -869,7 +873,7 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
         if (xform.MapUid is not { } mapUid ||
             !TryComp(mapUid, out MapGridComponent? grid))
         {
-            reason = "The Blackfoot is not on a valid Z map.";
+            reason = "cmu-blackfoot-flight-invalid-z-map";
             return false;
         }
 
@@ -900,8 +904,8 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
             !_zLevels.TryMapOffset(mapUid, offset, out var targetMap))
         {
             reason = offset > 0
-                ? "No upper Z level is available for takeoff."
-                : "No lower Z level is available for landing.";
+                ? "cmu-blackfoot-flight-no-upper-z"
+                : "cmu-blackfoot-flight-no-lower-z";
             return false;
         }
 
@@ -912,8 +916,8 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
                 return true;
 
             reason = offset > 0
-                ? "No upper Z map grid is available for takeoff."
-                : "No lower Z map grid is available for landing.";
+                ? "cmu-blackfoot-flight-no-upper-z-grid"
+                : "cmu-blackfoot-flight-no-lower-z-grid";
             return false;
         }
 
@@ -948,7 +952,7 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
             if (allowEmptyTiles)
                 return true;
 
-            reason = "The Blackfoot footprint center is outside valid map tiles.";
+            reason = "cmu-blackfoot-flight-footprint-center-invalid";
             return false;
         }
 
@@ -997,20 +1001,20 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
             if (allowEmptyTiles)
                 return true;
 
-            reason = $"The Blackfoot footprint is outside valid map tiles at offset {offset.X},{offset.Y}.";
+            reason = "cmu-blackfoot-flight-footprint-tile-invalid";
             return false;
         }
 
         if (checkBlockers && _turf.IsTileBlocked(tileRef, FootprintBlockMask))
         {
-            reason = $"The Blackfoot footprint is blocked at offset {offset.X},{offset.Y}.";
+            reason = "cmu-blackfoot-flight-footprint-blocked";
             return false;
         }
 
         if (requireOpenAir &&
             TryGetAirspaceBlockReason(new EntityCoordinates(mapUid, new Vector2(tile.X + 0.5f, tile.Y + 0.5f)), out var airspaceReason))
         {
-            reason = $"{airspaceReason} Offset {offset.X},{offset.Y}.";
+            reason = airspaceReason;
             return false;
         }
 
@@ -1023,57 +1027,57 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
 
         if (!_area.TryGetArea(coordinates, out _, out _))
         {
-            reason = "The Blackfoot footprint has no area data.";
+            reason = "cmu-blackfoot-flight-footprint-no-area";
             return true;
         }
 
         if (!_area.CanOrbitalBombard(coordinates, out var roofed))
         {
             reason = roofed
-                ? "The Blackfoot footprint is blocked by roofing."
-                : "The Blackfoot footprint is outside open-air bombardment permissions.";
+                ? "cmu-blackfoot-flight-footprint-roofed"
+                : "cmu-blackfoot-flight-footprint-no-open-air";
             return true;
         }
 
         if (!_area.CanCAS(coordinates))
         {
-            reason = "The Blackfoot footprint is outside close-air-support airspace.";
+            reason = "cmu-blackfoot-flight-footprint-no-cas";
             return true;
         }
 
         if (!_area.CanSupplyDrop(_transform.ToMapCoordinates(coordinates)))
         {
-            reason = "The Blackfoot footprint is outside supply-drop airspace.";
+            reason = "cmu-blackfoot-flight-footprint-no-supply";
             return true;
         }
 
         if (!_area.CanMortarFire(coordinates))
         {
-            reason = "The Blackfoot footprint is outside mortar-fire airspace.";
+            reason = "cmu-blackfoot-flight-footprint-no-mortar-fire";
             return true;
         }
 
         if (!_area.CanMortarPlacement(coordinates))
         {
-            reason = "The Blackfoot footprint is outside mortar-placement airspace.";
+            reason = "cmu-blackfoot-flight-footprint-no-mortar-placement";
             return true;
         }
 
         if (!_area.CanLase(coordinates))
         {
-            reason = "The Blackfoot footprint is outside lasing airspace.";
+            reason = "cmu-blackfoot-flight-footprint-no-lase";
             return true;
         }
 
         if (!_area.CanMedevac(coordinates))
         {
-            reason = "The Blackfoot footprint is outside medevac airspace.";
+            reason = "cmu-blackfoot-flight-footprint-no-medevac";
             return true;
         }
 
         if (!_area.CanParadrop(coordinates))
         {
-            reason = "The Blackfoot footprint is outside paradrop airspace.";
+            reason = "cmu-blackfoot-flight-footprint-no-paradrop";
             return true;
         }
 
@@ -1385,7 +1389,7 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
         if (!TryComp(vehicleUid, out VehicleComponent? vehicleComp) ||
             vehicleComp.Operator != performer)
         {
-            Popup(performer, "Only the Blackfoot pilot can use this control.", PopupType.SmallCaution);
+            Popup(performer, "cmu-blackfoot-flight-pilot-only", PopupType.SmallCaution);
             return false;
         }
 
@@ -1437,7 +1441,7 @@ public sealed partial class BlackfootFlightSystem : EntitySystem
 
     private void Popup(EntityUid pilot, string message, PopupType type = PopupType.Small)
     {
-        _popup.PopupCursor(message, pilot, type);
+        _popup.PopupCursor(Loc.GetString(message), pilot, type);
     }
 
     private void PopupPilot(EntityUid vehicle, string message, PopupType type = PopupType.Small)

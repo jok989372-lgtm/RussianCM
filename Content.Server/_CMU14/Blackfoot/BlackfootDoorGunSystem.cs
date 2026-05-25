@@ -88,7 +88,7 @@ public sealed partial class BlackfootDoorGunSystem : EntitySystem
             return;
 
         args.Cancel();
-        _popup.PopupCursor("Open the rear door before firing the M866.", ent.Owner, PopupType.SmallCaution);
+        _popup.PopupCursor(Loc.GetString("cmu-blackfoot-doorgun-open-rear-door"), ent.Owner, PopupType.SmallCaution);
     }
 
     private void OnDoorGunActionsShutdown(Entity<BlackfootDoorGunActionComponent> ent, ref ComponentShutdown args)
@@ -107,7 +107,7 @@ public sealed partial class BlackfootDoorGunSystem : EntitySystem
             !HasComp<BlackfootFlightComponent>(vehicle) ||
             !IsUsingDoorGun(ent.Owner, vehicle))
         {
-            _popup.PopupCursor("Select the M866 automatic grenade launcher first.", ent.Owner, PopupType.SmallCaution);
+            _popup.PopupCursor(Loc.GetString("cmu-blackfoot-doorgun-select-m866"), ent.Owner, PopupType.SmallCaution);
             UpdateZModeAction(ent.Owner, ent.Comp);
             return;
         }
@@ -120,10 +120,10 @@ public sealed partial class BlackfootDoorGunSystem : EntitySystem
         UpdateZModeAction(ent.Owner, ent.Comp);
 
         var message = shootDown
-            ? "M866 set to fire one Z-level below."
-            : "M866 set to fire on the current Z-level.";
+            ? "cmu-blackfoot-doorgun-fire-below"
+            : "cmu-blackfoot-doorgun-fire-current";
 
-        _popup.PopupCursor(message, ent.Owner);
+        _popup.PopupCursor(Loc.GetString(message), ent.Owner);
     }
 
     private bool IsBlackfootDoorGunSeat(Entity<BlackfootDoorGunSeatComponent> seat, out EntityUid? vehicle)
