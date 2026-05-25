@@ -346,7 +346,7 @@ namespace Content.Client.ContextMenu.UI
                     foreach (var child in element.SubMenu.MenuBody.Children)
                     {
                         if (child is EntityMenuElement childElement && childElement.Entity != null)
-                        Elements.Remove(childElement.Entity.Value);
+                            Elements.Remove(childElement.Entity.Value);
                     }
                 }
                 // RuMC edit end
