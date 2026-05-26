@@ -1,10 +1,36 @@
-ent-AU14CivilianClothingVendor-name = Гардероб гражданской одежды
-ent-AU14CivilianClothingVendor-desc = Гардероб, содержащий всю одежду, которая может понадобиться гражданскому лицу.
-ent-AU14CivilianEngineerVendor-name = Торговый автомат для инженеров и логистов
-ent-AU14CivilianEngineerVendor-desc = Торговый автомат, содержащий всё оборудование, которое может понадобиться инженеру или логисту.
-ent-AU14CivilianMedicalClothingVendor-name = Медицинский торговый автомат
-ent-AU14CivilianMedicalClothingVendor-desc = Гардероб, содержащий всю одежду и припасы, которые могут понадобиться медицинскому персоналу.
-ent-AU14CivilianEmergencyResponderOfficerVendor-name = Торговый автомат офицера экстренного реагирования
-ent-AU14CivilianEmergencyResponderOfficerVendor-desc = Гардероб, содержащий всю одежду и припасы, которые могут понадобиться офицеру экстренного реагирования.
-ent-AU14CivilianColonyOperationsSyntheticVendor-name = Торговый автомат синтетика колониальных операций
-ent-AU14CivilianColonyOperationsSyntheticVendor-desc = Гардероб, содержащий всю одежду и припасы, которые могут понадобиться синтетику колониальных операций.
+ent-AU14CivilianClothingVendor = гардероб гражданской одежды
+    .desc = Гардероб, содержащий всю одежду, которая может понадобиться гражданскому лицу.
+
+ent-AU14CivilianEngineerVendor = торгомат для инженеров и логистов
+    .desc = Торговый автомат, содержащий всё оборудование, которое может понадобиться инженеру или логисту.
+
+ent-AU14CivilianMedicalClothingVendor = медицинский торгомат
+    .desc = Гардероб, содержащий всю одежду и припасы, которые могут понадобиться медицинскому персоналу.
+
+ent-AU14CivilianEmergencyResponderOfficerVendor = торгомат офицера экстренного реагирования
+    .desc = Гардероб, содержащий всю одежду и припасы, которые могут понадобиться офицеру экстренного реагирования.
+
+ent-AU14CivilianColonyOperationsSyntheticVendor = торгомат синтетика колониальных операций
+    .desc = Гардероб, содержащий всю одежду и припасы, которые могут понадобиться синтетику колониальных операций.
+
+au14-vendor-section-shoes = Обувь
+
+au14-vendor-section-work-wear = Рабочая одежда
+
+au14-vendor-section-medical-scrubs = Медицинские скрабы
+
+au14-vendor-section-medical-scrub-caps = Медицинские шапочки
+
+au14-vendor-section-jackets = Куртки
+
+au14-vendor-section-medical-gloves = Медицинские перчатки
+
+au14-vendor-section-medical-masks = Медицинские маски
+
+au14-vendor-section-essential-equipment = Необходимое оборудование
+
+au14-vendor-section-medical-pouches = Медицинские подсумки
+
+au14-vendor-section-medical-storage = Медицинское хранилище
+
+au14-vendor-section-medical-equipment = Медицинское оборудование
