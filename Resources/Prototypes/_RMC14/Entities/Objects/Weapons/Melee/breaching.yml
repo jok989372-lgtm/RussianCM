@@ -46,3 +46,4 @@
         - MobMask
         layer:
         - MobLayer
+    denyPopup: rmc-synth-item-too-heavy
