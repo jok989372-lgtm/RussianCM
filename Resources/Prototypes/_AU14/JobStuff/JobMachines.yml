@@ -95,6 +95,9 @@
       tags:
       - SteelOre
 
+- type: Tag
+  id: SteelOre
+
 - type: entity
   parent: AUSubmissionPointBase
   id: AUSubmissionPointWood
@@ -109,6 +112,9 @@
     whitelist:
       tags:
       - AUwood
+
+- type: Tag
+  id: AUwood
 
 - type: entity
   parent: AUSubmissionPointBase
@@ -248,6 +254,8 @@
     interfaces:
       enum.ColonyCommsConsoleUI.Key:
         type: ColonyCommsConsoleBui
+  - type: AccessReader
+    access: [[ "CMAccessColonyCommand" ]]
   - type: ActivatableUIBlacklist
     blacklist:
       components:
