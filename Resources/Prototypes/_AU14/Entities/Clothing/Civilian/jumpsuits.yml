@@ -137,7 +137,6 @@
     sprite: _AU14/Clothing/Civilian/Uniforms/joehazmat.rsi
   - type: CMArmor
     bio: 20
-    bullet: 0
     explosionArmor: 15
     melee: 10
 
