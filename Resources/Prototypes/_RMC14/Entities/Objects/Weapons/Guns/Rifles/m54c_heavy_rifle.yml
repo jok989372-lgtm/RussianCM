@@ -71,6 +71,8 @@
           - RMCMagazineRifleM54CMK1Incendiary
           - RMCMagazineRifleM54CMK1HEAP
           - RMCMagazineRifleM54CMK1WP
+  - type: GunDamageModifier
+    multiplier: 1.1
   - type: GunRequiresWield
   - type: AttachableHolder
     slots:
