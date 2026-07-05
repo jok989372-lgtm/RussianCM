@@ -36,7 +36,7 @@
     recoilUnwielded: 4
     scatterWielded: 4
     scatterUnwielded: 20
-    baseFireRate: 4
+    baseFireRate: 5
     burstScatterMult: 1
     modifiers:
       Burst:
@@ -77,7 +77,7 @@
           - RMCMagazineRifleM54CMK1Incendiary
         startingItem: CMMagazineRifleM54CMK1AP
   - type: GunDamageModifier
-    multiplier: 1.1
+    multiplier: 1.25
   - type: RMCMagneticItem
   - type: AttachableHolder
     slots:
