@@ -219,7 +219,7 @@
     damage:
       types:
         Blunt: 15
-    maxFixedRange: 6 # 7 tiles
+    maxFixedRange: 10 # 7 tiles
   - type: Explosive
     explosionType: RMC
     maxIntensity: 0
@@ -241,7 +241,7 @@
     accuracy: 95
     thresholds:
     - range: 7
-      falloff: 10
+      falloff: 1
 
 - type: Tag
   id: RMCRocketHJRA12
