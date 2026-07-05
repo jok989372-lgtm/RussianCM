@@ -182,7 +182,7 @@
       tags:
       - CMCartridgeRifle10x24mm
     proto: CMCartridgeRifle10x24mm
-    capacity: 30
+    capacity: 65
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/ssg45.rsi
     layers:
@@ -237,7 +237,7 @@
       tags:
       - CMCartridgeRifle10x24mmAP
     proto: CMCartridgeRifle10x24mmAP
-    capacity: 30
+    capacity: 65
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/ssg45.rsi
     layers:
@@ -263,7 +263,7 @@
       tags:
       - RMCCartridgeRifle10x24mmHEAP
     proto: RMCCartridgeRifle10x24mmHEAP
-    capacity: 30
+    capacity: 65
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/ssg45.rsi
     layers:
@@ -297,7 +297,7 @@
       tags:
       - RMCCartridgeRifle10x24mmIncendiary
     proto: RMCCartridgeRifle10x24mmIncendiary
-    capacity: 30
+    capacity: 65
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/ssg45.rsi
     layers:
