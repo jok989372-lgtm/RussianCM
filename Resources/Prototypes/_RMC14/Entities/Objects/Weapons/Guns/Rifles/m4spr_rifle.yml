@@ -268,7 +268,7 @@
       tags:
       - CMCartridgeRifle10x24mm
     proto: CMCartridgeRifle10x24mm
-    capacity: 25
+    capacity: 30
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/m4spr.rsi
   - type: RefillableByBulletBox
@@ -401,7 +401,7 @@
   description: "An extended magazine of standard 10x24mm rounds for use in the M4RA battle rifle."
   components:
   - type: BallisticAmmoProvider
-    capacity: 35
+    capacity: 40
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/m4spre.rsi
     layers:
@@ -426,7 +426,7 @@
       tags:
       - RMCCartridgeRifleM5SPRHVP
     proto: RMCCartridgeRifleM5SPRHVP
-    capacity: 25
+    capacity: 30
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/m4spr.rsi
     layers:
@@ -520,7 +520,7 @@
       tags:
       - RMCCartridgeRifleM5SPRHVHIP
     proto: RMCCartridgeRifleM5SPRHVHIP
-    capacity: 25
+    capacity: 30
 
 - type: Tag
   id: CMMagazineRifleM4SPR
