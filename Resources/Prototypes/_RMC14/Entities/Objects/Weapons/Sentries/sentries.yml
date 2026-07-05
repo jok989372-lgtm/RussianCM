@@ -94,6 +94,8 @@
     setDamage:
       types:
         Blunt: 40
+  - type: Gun
+    fireRate: 6.66
   - type: Tag
     tags:
     - RMCSentry
