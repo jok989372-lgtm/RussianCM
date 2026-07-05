@@ -34,7 +34,7 @@
     recoilUnwielded: 4
     scatterWielded: 4
     scatterUnwielded: 20
-    baseFireRate: 4
+    baseFireRate: 5
     burstScatterMult: 1
     modifiers:
       Burst:
@@ -69,7 +69,7 @@
           - CMMagazineRifleM54CMK1TracerTag
         startingItem: CMMagazineRifleM54CMK1
   - type: GunDamageModifier
-    multiplier: 1.1
+    multiplier: 1
   - type: AttachableHolder
     slots:
       rmc-aslot-barrel:
@@ -160,7 +160,7 @@
       tags:
       - CMCartridgeRifle10x24mm
     proto: CMCartridgeRifle10x24mm
-    capacity: 95
+    capacity: 99
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/m54cmk1.rsi
     layers:
