@@ -36,3 +36,14 @@ cmu-zlevel-ladder-unstable = The ladder wobbles without nearby support!
 cmu-zlevel-ladder-collapse = The unsupported ladder collapses back into its packed frame!
 cmu-zlevel-ladder-retract-no-hand = You need an empty hand to retract the ladder.
 cmu-zlevel-ladder-retract-finish = You retract the ladder.
+
+ent-CMUActionZLevelUp = Move up
+    .desc = Move up one Z-level.
+
+ent-CMUActionZLevelDown = Move down
+    .desc = Move down one Z-level.
+
+ent-CMUActionToggleLookUp = Look up
+    .desc = You lift your head and look up at the sky.
+# AU14 (building overhaul): stage 1 of the look-up cycle (faint upper ghost).
+cmu-zlevel-faint-up-enabled = You glance upward, faintly making out the level above.

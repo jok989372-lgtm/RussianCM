@@ -75,7 +75,7 @@
     pocket2: RMCPouchConstructionFillFull
   storage:
       belt:
-      - AU14MaintenanceJack
+      - AU14MaintenanceJackSpecial
       - RMCSynthResetKeySeegson
       back:
       - AU14SprayCleanerExperimental
@@ -104,6 +104,10 @@
     - FrontalLisp
     - NonResuscitable
     - Epilepsy
+    - CMUProstheticLeftArm
+    - CMUProstheticRightArm
+    - CMUProstheticLeftLeg
+    - CMUProstheticRightLeg
   icon: "AU14JobIconColonyWorkingJoe"
   spawnMenuRoleName: Working Joe (Colony)
   supervisors: au14-job-supervisors-workingjoe-colony
@@ -155,7 +159,7 @@
     pocket2: RMCPouchConstructionFillFull
   storage:
       belt:
-      - AU14MaintenanceJack
+      - AU14MaintenanceJackSpecial
       - RMCSynthResetKeySeegson
   inhand:
   - CMFireExtinguisher

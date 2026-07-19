@@ -210,6 +210,7 @@
       - RMCNailgunTactical
       - RMCCircuitboard
       - RMCSynthResetKey
+      - AU14MaintenanceJack
       components:
       - Welder
       - PowerCell
